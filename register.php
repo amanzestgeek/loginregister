@@ -119,12 +119,13 @@ require __DIR__ . '/includes/auth_header.php';
         <label for="password_confirm">Confirm password</label>
         <div class="input-wrap">
             <input id="password_confirm" name="password_confirm" type="password" autocomplete="new-password"
-                   required maxlength="72">
+                   required maxlength="72" aria-describedby="password_confirm_hint" data-match-input>
             <button type="button" class="toggle-pass" aria-label="Show password" data-toggle-password>
                 <span class="when-hidden"><?= icon('eye') ?></span>
                 <span class="when-shown"><?= icon('eye-off') ?></span>
             </button>
         </div>
+        <p id="password_confirm_hint" class="match-hint" role="status" aria-live="polite" data-match-hint hidden></p>
         <?php if (isset($errors['password_confirm'])): ?><p class="field-error"><?= e($errors['password_confirm']) ?></p><?php endif; ?>
     </div>
 
