@@ -1,0 +1,8 @@
+# SQLite database (created automatically on first run, contains user data)
+data/*.sqlite
+data/*.sqlite-*
+
+# OS / editor files
+.DS_Store
+.idea/
+.vscode/
