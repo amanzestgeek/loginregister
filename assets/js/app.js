@@ -30,6 +30,33 @@
         });
     }
 
+    // Live password-confirmation feedback
+    document.querySelectorAll('[data-match-input]').forEach(function (confirmInput) {
+        var form = confirmInput.form;
+        var hint = form && form.querySelector('[data-match-hint]');
+        var primary = form && form.querySelector('input[name="password"]');
+        if (!hint || !primary) return;
+
+        function updateMatch() {
+            var value = confirmInput.value;
+            hint.classList.remove('is-match', 'is-mismatch');
+
+            if (value === '') {
+                hint.hidden = true;
+                hint.textContent = '';
+                return;
+            }
+
+            var matches = value === primary.value;
+            hint.textContent = matches ? 'Passwords match.' : 'Passwords do not match.';
+            hint.classList.add(matches ? 'is-match' : 'is-mismatch');
+            hint.hidden = false;
+        }
+
+        confirmInput.addEventListener('input', updateMatch);
+        primary.addEventListener('input', updateMatch);
+    });
+
     // Loading state on submit
     document.querySelectorAll('[data-loading-form]').forEach(function (form) {
         form.addEventListener('submit', function () {

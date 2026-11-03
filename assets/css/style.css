@@ -168,6 +168,9 @@ button { font: inherit; color: inherit; }
 .field.has-error input { border-color: var(--danger); }
 .field.has-error input:focus { box-shadow: 0 0 0 3px rgba(198, 40, 40, .18); }
 .field-error { margin-top: 6px; font-size: 13px; color: var(--danger); }
+.match-hint { margin-top: 6px; font-size: 13px; color: var(--muted); }
+.match-hint.is-match { color: var(--success); }
+.match-hint.is-mismatch { color: var(--danger); }
 
 .strength { display: grid; gap: 6px; margin-top: 8px; }
 .strength-bars { display: flex; gap: 4px; }
